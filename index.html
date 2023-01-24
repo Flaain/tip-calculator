@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>TIP CALCULATOR</title>
+</head>
+<body class="body">
+    <header class="header">
+        <h1 class="header__title">SPLITTER</h1>
+    </header>
+    <main class="main">
+        <section class="tip-calculator">
+            <div class="tip-calculator__container">
+                <form class="tip-form">
+                    <div class="tip-form__bill-wrapper">
+                        <span class="tip-form__bill-title">Bill</span>
+                        <div class="tip-form__bill-input-wrapper">
+                            <input type="number" class="tip-form__bill-input" placeholder="0">
+                        </div>
+                    </div>
+                    <div class="tip-form__percent-container">
+                        <div class="tip-form__percent__text">
+                            <span class="tip-form__percent-title">Select Tip %</span>
+                        </div>
+                        <ul class="tip-form__percent-btns-list">
+                            <li class="tip-form__percent-btns-item">
+                                <button class="tip-form__percent-btn" data-value="5">5%</button>
+                            </li>
+                            <li class="tip-form__percent-btns-item">
+                                <button class="tip-form__percent-btn" data-value="10">10%</button> 
+                            </li>
+                            <li class="tip-form__percent-btns-item">
+                                <button class="tip-form__percent-btn" data-value="15">15%</button>
+                            </li>
+                            <li class="tip-form__percent-btns-item">
+                                <button class="tip-form__percent-btn" data-value="25">25%</button>
+                            </li>
+                            <li class="tip-form__percent-btns-item">
+                                <button class="tip-form__percent-btn" data-value="50">50%</button> 
+                            </li>
+                            <li class="tip-form__percent-btns-item">
+                                <input type="number" class="tip-form__custom-percent" placeholder="Custom" disabled>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tip-form__people-container">
+                        <div class="tip-form__people-text">
+                            <span class="tip-form__people-title">Number of People</span>
+                            <span class="tip-form__people-error">Can't not be zero</span>
+                        </div>
+                        <div class="tip-form__people-input-wrapper">
+                            <input type="number" class="tip-form__people-input" placeholder="0">
+                        </div>
+                    </div>
+                </form>
+                <div class="total">
+                    <div class="total__text">
+                        <div class="total__tip">
+                            <div class="total__tip-text">
+                                <span class="total__tip-title">Tip Amount</span>
+                                <span class="total__tip-description">/ person</span>
+                            </div>
+                            <div class="total__tip-wrapper">
+                                <h2 class="total__tip-amount">$0.00</h2>
+                            </div>
+                        </div>
+                        <div class="total__amount">
+                            <div class="total__amount-text">
+                                <span class="total__amount-title">Total</span>
+                                <span class="total__amount-description">/ person</span>
+                            </div>
+                            <div class="total__tip-wrapper">
+                                <h2 class="total__amount-money">$0.00</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="total__reset-btn" disabled>Reset</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script type="module" src="./pages/index.js"></script>
+</body>
+</html>
