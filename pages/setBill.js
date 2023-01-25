@@ -1,13 +1,17 @@
 import { billInput, peopleInput, customTip, percentBtn, resetBtn } from './variables.js';
 import { checkInput } from './checkInput.js';
 import { calculateTip } from './calculateTip.js';
+import { getOnlyNumbers } from './getOnlyNumbers.js';
 
 export function setBill(e) {
     e.preventDefault();
+
     let tip;
 
-    const bill = billInput.value;
-    const peopleAmount = peopleInput.value;
+    const bill = getOnlyNumbers(billInput.value);
+    billInput.value = bill;
+    
+    const peopleAmount = customTip.value;
     const customTipValue = customTip.value;
 
     if (checkInput(peopleAmount)) return;
