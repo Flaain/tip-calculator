@@ -39,11 +39,11 @@ export function setTip(button) {
                     handleInputError(peopleInput, errorPeople, PEOPLE_ERROR_MESSAGE_CLASS, PEOPLE_ERROR_INPUT_CLASS, peopleInputIcon, PEOPLE_ICON_ERROR_CLASS);
                     throw new Error('Both inputs are invalid. Make sure they are not empty and not equal 0');
                 case checkInput(bill):
-                    handleInputError(billInput, errorBill, BILL_ERROR_MESSAGE_CLASS, BILL_ERROR_INPUT_CLASS);
+                    handleInputError(billInput, errorBill, BILL_ERROR_MESSAGE_CLASS, BILL_ERROR_INPUT_CLASS, billInputIcon, BILL_ICON_ERROR_CLASS);
                     billInput.focus();
                     throw new Error('Bill input are invalid. Make sure he is are not empty and not equal 0');
                 case checkInput(peopleAmount):
-                    handleInputError(peopleInput, errorPeople, PEOPLE_ERROR_MESSAGE_CLASS, PEOPLE_ERROR_INPUT_CLASS);
+                    handleInputError(peopleInput, errorPeople, PEOPLE_ERROR_MESSAGE_CLASS, PEOPLE_ERROR_INPUT_CLASS, peopleInputIcon, PEOPLE_ICON_ERROR_CLASS);
                     peopleInput.focus();
                     throw new Error('People input are invalid. Make sure he is are not empty and not equal 0');
             }
