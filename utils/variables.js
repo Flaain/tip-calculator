@@ -1,3 +1,5 @@
+import { handleInputError } from "../components/handleInputError.js";
+
 export const billInput = document.querySelector('.tip-form__bill-input');
 export const peopleInput = document.querySelector('.tip-form__people-input');
 export const percentBtn = document.querySelectorAll('.tip-form__percent-btn');
@@ -17,3 +19,20 @@ export const BILL_ERROR_MESSAGE_CLASS = 'tip-form__bill-error_state_active';
 export const BILL_ERROR_INPUT_CLASS = 'tip-form__bill-input_state_error';
 export const PEOPLE_ERROR_MESSAGE_CLASS = 'tip-form__people-error_state_active';
 export const PEOPLE_ERROR_INPUT_CLASS = 'tip-form__people-input_state_error';
+
+export const errorBillInput = new handleInputError(
+    billInput, 
+    errorBill, 
+    BILL_ERROR_INPUT_CLASS, 
+    BILL_ERROR_MESSAGE_CLASS, 
+    billInputIcon, 
+    BILL_ICON_ERROR_CLASS
+);
+export const errorPeopleInput = new handleInputError(
+    peopleInput, 
+    errorPeople, 
+    PEOPLE_ERROR_INPUT_CLASS, 
+    PEOPLE_ERROR_MESSAGE_CLASS, 
+    peopleInputIcon, 
+    PEOPLE_ICON_ERROR_CLASS
+); 

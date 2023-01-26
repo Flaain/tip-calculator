@@ -1,19 +1,7 @@
-import {
-    billInput,
-    billInputIcon,
-    peopleInput,
-    customTip,
-    percentBtn,
-    resetBtn,
-    errorBill,
-    BILL_ERROR_INPUT_CLASS,
-    BILL_ERROR_MESSAGE_CLASS,
-    BILL_ICON_ERROR_CLASS
-} from '../utils/variables.js';
+import { billInput, peopleInput, customTip, percentBtn, resetBtn, errorBillInput } from '../utils/variables.js';
 import { checkInput } from './checkInput.js';
 import { calculateTip } from './calculateTip.js';
 import { getOnlyNumbers } from './getOnlyNumbers.js';
-import { handleInputError } from './handleInputError.js';
 import { resetInput } from './resetInput.js';
 import { enableButtons } from './enabledButtons.js';
 
@@ -30,7 +18,7 @@ export function setBill(e) {
     const customTipValue = customTip.value;
 
     if (checkInput(bill)) {
-        handleInputError(billInput, errorBill, BILL_ERROR_MESSAGE_CLASS, BILL_ERROR_INPUT_CLASS, billInputIcon, BILL_ICON_ERROR_CLASS);
+        errorBillInput.throwError();
         billInput.focus();
         resetBillInput.clearInput();
         return;
