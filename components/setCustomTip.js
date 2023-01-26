@@ -20,22 +20,18 @@ export function setCustomTip(e) {
 
     enableButtons();
 
-    resetBtn.classList.add('total__reset-btn_state_active');
-    customTip.classList.add('tip-form__custom-percent_state_active');
-    
-    if (!document.querySelector('.tip-form__percent-btn_state_active') && !customTipValue) {
+    resetBtn.classList.add('button_state_active');
+    customTip.classList.add('form__input_state_active');
+
+    if (!document.querySelector('.form__btn_state_active') && !customTipValue) {
         percentBtn.forEach((button) => {
             if (parseFloat(button.dataset.value) === 5) {
-                button.classList.add('tip-form__percent-btn_state_active');
+                button.classList.add('form__btn_state_active');
                 return tip = button.dataset?.value;
             }
         });
     } else {
-        if (customTipValue) {
-            tip = customTipValue;
-        } else {
-            tip = document.querySelector('.tip-form__percent-btn_state_active').dataset?.value;
-        }
+        tip = customTipValue ? customTipValue : document.querySelector('.form__btn_state_active').dataset?.value
     }    
 
     calculateTip(bill, tip, peopleAmount);

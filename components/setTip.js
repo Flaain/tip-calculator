@@ -30,13 +30,13 @@ export function setTip(button) {
                     throw new Error('People input are invalid. Make sure he is are not empty and not equal 0');
             }
         
-            percentBtn.forEach((button) => button.classList.remove('tip-form__percent-btn_state_active'));
-            button.classList.add('tip-form__percent-btn_state_active');
+            percentBtn.forEach((button) => button.classList.remove('form__btn_state_active'));
+            button.classList.add('form__btn_state_active');
         
             calculateTip(bill, tip, peopleAmount);
         
-            resetBtn.classList.add('total__reset-btn_state_active');
-            customTip.classList.add('tip-form__custom-percent_state_active');
+            resetBtn.classList.add('button_state_active');
+            customTip.classList.add('form__input_state_active');
         
             enableButtons();
         } catch (error) {

@@ -13,8 +13,8 @@ export function reset(e) {
 
     disabledButtons();
 
-    resetBtn.classList.remove('total__reset-btn_state_active');
-    customTip.classList.remove('tip-form__custom-percent_state_active');
+    resetBtn.classList.remove('button_state_active');
+    customTip.classList.remove('form__input_state_active');
 
-    percentBtn.forEach((button) => button.classList.remove('tip-form__percent-btn_state_active'));
+    percentBtn.forEach((button) => button.classList.remove('form__btn_state_active'));
 }
