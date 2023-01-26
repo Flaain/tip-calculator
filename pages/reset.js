@@ -1,4 +1,5 @@
 import {tipForm, totalTip, totalMoney, resetBtn, customTip, percentBtn} from './variables.js'
+import { disabledButtons } from './disabledButtons.js';
 
 export function reset(e) {
     e?.preventDefault();
@@ -10,8 +11,7 @@ export function reset(e) {
     totalTip.removeAttribute('title');
     totalMoney.removeAttribute('title');
 
-    resetBtn.disabled = true;
-    customTip.disabled = true;
+    disabledButtons();
 
     resetBtn.classList.remove('total__reset-btn_state_active');
     customTip.classList.remove('tip-form__custom-percent_state_active');

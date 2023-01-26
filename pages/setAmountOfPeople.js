@@ -1,34 +1,40 @@
-import { billInput, peopleInput, customTip, percentBtn, resetBtn, error } from './variables.js';
+import {
+    billInput,
+    peopleInput,
+    customTip,
+    percentBtn,
+    resetBtn,
+    errorPeople,
+    PEOPLE_ERROR_MESSAGE_CLASS,
+    PEOPLE_ERROR_INPUT_CLASS
+} from './variables.js';
 import { checkInput } from './checkInput.js';
 import { calculateTip } from './calculateTip.js';
-import { reset } from './reset.js';
 import { getOnlyNumbers } from './getOnlyNumbers.js';
+import { handleInputError } from './handleInputError.js';
+import { resetInput } from './resetInput.js';
+import { enableButtons } from './enabledButtons.js';
 
 export function setAmountOfPeople(e) {
     e.preventDefault();
     let tip;
-    let errorTimer;
 
     const bill = billInput.value;
     const customTipAmount = customTip.value;
-    const peopleAmount = getOnlyNumbers(peopleInput.value);
-    peopleInput.value = peopleAmount;
+    const resetPeopleInput = new resetInput(peopleInput);
+    const peopleAmount = getOnlyNumbers(this.value);
+    this.value = peopleAmount;
 
-    switch(parseInt(peopleAmount)) {
-        case 0:
-            error.classList.add('tip-form__people-error_state_active');
-            errorTimer = setTimeout(() => error.classList.remove('tip-form__people-error_state_active'), 5000);
-            peopleInput.classList.add('tip-form__people-input_state_error');
-            peopleInput.focus();
-            errorTimer = setTimeout(() => peopleInput.classList.remove('tip-form__people-input_state_error'), 5000);
-            reset();       
-            return;       
+    if (checkInput(peopleAmount)) {
+        handleInputError(peopleInput, errorPeople, PEOPLE_ERROR_MESSAGE_CLASS, PEOPLE_ERROR_INPUT_CLASS);
+        peopleInput.focus();
+        resetPeopleInput.clearInput();
+        return;
     }
 
     if (checkInput(bill)) return;
 
-    customTip.disabled = false;
-    resetBtn.disabled = false;
+    enableButtons()
 
     resetBtn.classList.add('total__reset-btn_state_active');
     customTip.classList.add('tip-form__custom-percent_state_active');

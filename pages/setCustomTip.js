@@ -2,6 +2,7 @@ import { billInput, peopleInput, percentBtn, resetBtn, customTip } from './varia
 import { checkInput } from './checkInput.js';
 import { calculateTip } from './calculateTip.js';
 import { getOnlyNumbers } from './getOnlyNumbers.js';
+import { enableButtons } from './enabledButtons.js';
 
 export function setCustomTip(e) {
     e.preventDefault();
@@ -9,22 +10,15 @@ export function setCustomTip(e) {
 
     const bill = billInput.value;
     const peopleAmount = peopleInput.value;
-    const customTipValue = getOnlyNumbers(customTip.value);
 
-    customTip.value = customTipValue;
+    const customTipValue = getOnlyNumbers(this.value);
+    this.value = customTipValue;
 
-    switch(true) {
-        case checkInput(bill):
-            return;
-        case checkInput(peopleAmount):
-            return;
-        case !checkInput(customTipValue):
-            percentBtn.forEach((button) => button.classList.remove('tip-form__percent-btn_state_active'));
-            break;       
+    if(!checkInput(customTipValue)) {
+        percentBtn.forEach((button) => button.classList.remove('tip-form__percent-btn_state_active'));
     }
 
-    customTip.disabled = false;
-    resetBtn.disabled = false;
+    enableButtons();
 
     resetBtn.classList.add('total__reset-btn_state_active');
     customTip.classList.add('tip-form__custom-percent_state_active');

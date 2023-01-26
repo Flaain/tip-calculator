@@ -1,3 +1,3 @@
 export function checkInput(input) {
-    return /^\s*$/gim.test(input);
+    return /^(0|\s*)$/gim.test(input);
 }

@@ -1,3 +1,3 @@
 export function getOnlyNumbers(input) {
-    return input.replace(/^\.|[^\d.]/ig, '')
+    return input.replace(/^\.|[^\d.]/gim, '')
 }
