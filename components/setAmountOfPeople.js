@@ -1,12 +1,14 @@
 import {
     billInput,
     peopleInput,
+    peopleInputIcon,
     customTip,
     percentBtn,
     resetBtn,
     errorPeople,
     PEOPLE_ERROR_MESSAGE_CLASS,
-    PEOPLE_ERROR_INPUT_CLASS
+    PEOPLE_ERROR_INPUT_CLASS,
+    PEOPLE_ICON_ERROR_CLASS
 } from '../utils/variables.js';
 import { checkInput } from './checkInput.js';
 import { calculateTip } from './calculateTip.js';
@@ -26,7 +28,7 @@ export function setAmountOfPeople(e) {
     this.value = peopleAmount;
 
     if (checkInput(peopleAmount)) {
-        handleInputError(peopleInput, errorPeople, PEOPLE_ERROR_MESSAGE_CLASS, PEOPLE_ERROR_INPUT_CLASS);
+        handleInputError(peopleInput, errorPeople, PEOPLE_ERROR_MESSAGE_CLASS, PEOPLE_ERROR_INPUT_CLASS, peopleInputIcon, PEOPLE_ICON_ERROR_CLASS);
         peopleInput.focus();
         resetPeopleInput.clearInput();
         return;
