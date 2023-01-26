@@ -8,6 +8,11 @@ export const resetBtn = document.querySelector('.total__reset-btn');
 export const tipForm = document.querySelector('.tip-form');
 export const errorPeople = document.querySelector('.tip-form__people-error');
 export const errorBill = document.querySelector('.tip-form__bill-error');
+export const billInputIcon = document.querySelector('.tip-form__bill-icon');
+export const peopleInputIcon = document.querySelector('.tip-form__people-icon');
+
+export const BILL_ICON_ERROR_CLASS = 'tip-form__bill-icon_state_error';
+export const PEOPLE_ICON_ERROR_CLASS = 'tip-form__people-icon_state_error';
 export const BILL_ERROR_MESSAGE_CLASS = 'tip-form__bill-error_state_active';
 export const BILL_ERROR_INPUT_CLASS = 'tip-form__bill-input_state_error';
 export const PEOPLE_ERROR_MESSAGE_CLASS = 'tip-form__people-error_state_active';

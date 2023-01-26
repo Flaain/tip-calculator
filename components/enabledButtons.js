@@ -1,4 +1,4 @@
-import { customTip, resetBtn} from "./variables.js";
+import { customTip, resetBtn} from "../utils/variables.js";
 
 export function enableButtons() {
     customTip.disabled = false;

@@ -1,4 +1,4 @@
-import { totalTip, totalMoney } from './variables.js'
+import { totalTip, totalMoney } from '../utils/variables.js'
 
 export function calculateTip(bill, tip, people) {
 	const totalTipAmount = (parseFloat(bill) * (parseFloat(tip) / 100) / parseInt(people)).toFixed(2);

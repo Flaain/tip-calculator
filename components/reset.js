@@ -1,4 +1,4 @@
-import {tipForm, totalTip, totalMoney, resetBtn, customTip, percentBtn} from './variables.js'
+import {tipForm, totalTip, totalMoney, resetBtn, customTip, percentBtn} from '../utils/variables.js'
 import { disabledButtons } from './disabledButtons.js';
 
 export function reset(e) {

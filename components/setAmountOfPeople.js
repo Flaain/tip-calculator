@@ -4,10 +4,10 @@ import {
     customTip,
     percentBtn,
     resetBtn,
-    errorBill,
-    BILL_ERROR_INPUT_CLASS,
-    BILL_ERROR_MESSAGE_CLASS
-} from './variables.js';
+    errorPeople,
+    PEOPLE_ERROR_MESSAGE_CLASS,
+    PEOPLE_ERROR_INPUT_CLASS
+} from '../utils/variables.js';
 import { checkInput } from './checkInput.js';
 import { calculateTip } from './calculateTip.js';
 import { getOnlyNumbers } from './getOnlyNumbers.js';
@@ -15,33 +15,31 @@ import { handleInputError } from './handleInputError.js';
 import { resetInput } from './resetInput.js';
 import { enableButtons } from './enabledButtons.js';
 
-export function setBill(e) {
+export function setAmountOfPeople(e) {
     e.preventDefault();
-
     let tip;
 
-    const resetBillInput = new resetInput(billInput);
-    const bill = getOnlyNumbers(this.value);
-    this.value = bill;
-    
-    const peopleAmount = peopleInput.value;
-    const customTipValue = customTip.value;
+    const bill = billInput.value;
+    const customTipAmount = customTip.value;
+    const resetPeopleInput = new resetInput(peopleInput);
+    const peopleAmount = getOnlyNumbers(this.value);
+    this.value = peopleAmount;
 
-    if (checkInput(bill)) {
-        handleInputError(billInput, errorBill, BILL_ERROR_MESSAGE_CLASS, BILL_ERROR_INPUT_CLASS);
-        billInput.focus();
-        resetBillInput.clearInput();
+    if (checkInput(peopleAmount)) {
+        handleInputError(peopleInput, errorPeople, PEOPLE_ERROR_MESSAGE_CLASS, PEOPLE_ERROR_INPUT_CLASS);
+        peopleInput.focus();
+        resetPeopleInput.clearInput();
         return;
     }
 
-    if (checkInput(peopleAmount)) return;
+    if (checkInput(bill)) return;
 
-    enableButtons();
+    enableButtons()
 
     resetBtn.classList.add('total__reset-btn_state_active');
     customTip.classList.add('tip-form__custom-percent_state_active');
 
-    if (!document.querySelector('.tip-form__percent-btn_state_active') && !customTipValue) {
+    if (!document.querySelector('.tip-form__percent-btn_state_active') && !customTipAmount) {
         percentBtn.forEach((button) => {
             if (parseFloat(button.dataset.value) === 5) {
                 button.classList.add('tip-form__percent-btn_state_active');
@@ -49,7 +47,7 @@ export function setBill(e) {
             }
         });
     } else {
-        tip = customTipValue ? customTipValue : document.querySelector('.tip-form__percent-btn_state_active').dataset?.value
+        tip = customTipAmount ? customTipAmount : document.querySelector('.tip-form__percent-btn_state_active').dataset?.value
     }    
 
     calculateTip(bill, tip, peopleAmount);

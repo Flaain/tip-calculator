@@ -1,16 +1,20 @@
 import {
     billInput,
+    billInputIcon,
     peopleInput,
+    peopleInputIcon,
     customTip,
     percentBtn,
     resetBtn,
     errorBill,
     errorPeople,
     BILL_ERROR_INPUT_CLASS,
+    BILL_ICON_ERROR_CLASS,
     BILL_ERROR_MESSAGE_CLASS,
     PEOPLE_ERROR_MESSAGE_CLASS,
-    PEOPLE_ERROR_INPUT_CLASS
-} from './variables.js';
+    PEOPLE_ERROR_INPUT_CLASS,
+    PEOPLE_ICON_ERROR_CLASS
+} from '../utils/variables.js';
 import { checkInput } from './checkInput.js';
 import { calculateTip } from './calculateTip.js';
 import { resetInput } from './resetInput.js';
@@ -31,8 +35,8 @@ export function setTip(button) {
         try {
             switch (true) {
                 case checkInput(bill) && checkInput(peopleAmount):
-                    handleInputError(billInput, errorBill, BILL_ERROR_MESSAGE_CLASS, BILL_ERROR_INPUT_CLASS);
-                    handleInputError(peopleInput, errorPeople, PEOPLE_ERROR_MESSAGE_CLASS, PEOPLE_ERROR_INPUT_CLASS);
+                    handleInputError(billInput, errorBill, BILL_ERROR_MESSAGE_CLASS, BILL_ERROR_INPUT_CLASS, billInputIcon, BILL_ICON_ERROR_CLASS);
+                    handleInputError(peopleInput, errorPeople, PEOPLE_ERROR_MESSAGE_CLASS, PEOPLE_ERROR_INPUT_CLASS, peopleInputIcon, PEOPLE_ICON_ERROR_CLASS);
                     throw new Error('Both inputs are invalid. Make sure they are not empty and not equal 0');
                 case checkInput(bill):
                     handleInputError(billInput, errorBill, BILL_ERROR_MESSAGE_CLASS, BILL_ERROR_INPUT_CLASS);

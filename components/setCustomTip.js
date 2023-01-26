@@ -1,4 +1,4 @@
-import { billInput, peopleInput, percentBtn, resetBtn, customTip } from './variables.js';
+import { billInput, peopleInput, percentBtn, resetBtn, customTip } from '../utils/variables.js';
 import { checkInput } from './checkInput.js';
 import { calculateTip } from './calculateTip.js';
 import { getOnlyNumbers } from './getOnlyNumbers.js';
