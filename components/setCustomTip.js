@@ -15,7 +15,7 @@ export function setCustomTip(e) {
     this.value = customTipValue;
 
     if(!checkInput(customTipValue)) {
-        percentBtn.forEach((button) => button.classList.remove('tip-form__percent-btn_state_active'));
+        percentBtn.forEach((button) => button.classList.remove('form__btn_state_active'));
     }
 
     enableButtons();
