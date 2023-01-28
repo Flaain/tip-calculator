@@ -5,16 +5,16 @@ import { enableButtons } from './enabledButtons.js';
 import { validateInputs } from './validateInputs.js';
 
 export function setTip(button) {
+
+    const resetTipInput = new resetInput(customTip);
+    
     button.addEventListener('click', (e) => {
         e.preventDefault();
+        resetTipInput.clearInput();
 
-        let { value: tip } = e.target.dataset;
-        
         const { value: bill } = billInput;
         const { value: peopleAmount } = peopleInput;
-
-        const resetTipInput = new resetInput(customTip);
-        resetTipInput.clearInput();
+        let { value: tip } = e.target.dataset;
 
         if (validateInputs()) {
             calculateTip(bill, tip, peopleAmount);

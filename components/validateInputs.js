@@ -2,8 +2,8 @@ import { billInput, peopleInput, errorBillInput, errorPeopleInput } from '../uti
 import { checkInput } from './checkInput.js';
 
 export function validateInputs() {
-    const bill = billInput.value;
-    const peopleAmount = peopleInput.value;
+    const { value: bill } = billInput;
+    const { value: peopleAmount } = peopleInput;
 
     try {
         switch (true) {
